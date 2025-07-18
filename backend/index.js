@@ -7,7 +7,7 @@ const userRoutes = require('./routes/userRoute');
 app.use(cors({
   origin: [
     'http://localhost:5173',                    // local dev
-    'https://vercel.com'    // vercel frontend
+    'https://point-leaderboard.vercel.app/'    // vercel frontend
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
