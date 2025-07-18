@@ -4,7 +4,7 @@ export function ClaimButton({ selectedUserId, onClaimed }) {
   async function claimPoints() {
     if (!selectedUserId) return alert("Select a user first.");
     try{
-    const res = await axios.post(`http://localhost:3000/api/claim/${selectedUserId}`)
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/claim/${selectedUserId}`);
     onClaimed(res.data);
     } catch(error){
         console.error("Error claiming points",error);
