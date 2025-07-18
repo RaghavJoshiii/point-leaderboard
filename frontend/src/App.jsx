@@ -15,13 +15,12 @@ export default function App() {
 
   // Function to fetch users from the backend API
   async function fetchUsers() {
-    try {
-      // Make a GET request to fetch the leaderboard data
-      const res = await axios.get('http://localhost:3000/api/leaderboard');
-      // Update the users state with the fetched data
+  try {
+      // Use environment variable for the base URL
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/leaderboard`);
+      // Update state with the response
       setUsers(res.data);
     } catch (error) {
-      // Log any error that occurs during the request
       console.error("Error fetching users", error);
     }
   }
