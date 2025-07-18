@@ -12,8 +12,8 @@ export function AddUser({ onUserAdded }) {
 
     try {
       // Send POST request to the backend to add the user
-      const res = await axios.post('http://localhost:3000/api/users', {
-        name: name.trim(), // Clean the input by trimming whitespace
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/users`, {
+        name:name.trim()
       });
 
       const newUser = res.data; // Response contains the newly created user
