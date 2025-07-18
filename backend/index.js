@@ -4,7 +4,15 @@ const cors = require('cors');
 const app = express();
 const userRoutes = require('./routes/userRoute');
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',                    // local dev
+    'https://vercel.com'    // vercel frontend
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use('/api', userRoutes);
 
